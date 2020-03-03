@@ -108,10 +108,10 @@ class _RegistrationState extends State<Registration> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> registerUser() async {
-    FirebaseUser user = await _auth.createUserWithEmailAndPassword(
+    FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
       email: email,
       password: password,
-    );
+    )).user;
 
     Navigator.push(
       context,
@@ -191,10 +191,10 @@ class _LoginState extends State<Login> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> loginUser() async {
-    FirebaseUser user = await _auth.signInWithEmailAndPassword(
+    FirebaseUser user = (await _auth.signInWithEmailAndPassword(
       email: email,
       password: password,
-    );
+    )).user;
 
     Navigator.push(
       context,
