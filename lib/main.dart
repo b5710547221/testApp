@@ -39,11 +39,11 @@ class MyHomePage extends StatelessWidget {
                 tag: 'logo',
                 child: Container(
                   width: 100.0,
-                  child: Image.asset("assets/images/logo.png"),
+                  child: Image.asset("lib/assets/images/logo.png"),
                 ),
               ),
               Text(
-                "Tensor Chat",
+                "Chatting test",
                 style: TextStyle(
                   fontSize: 40.0,
                 ),
@@ -54,13 +54,13 @@ class MyHomePage extends StatelessWidget {
             height: 50.0,
           ),
           CustomButton(
-            text: "Log In",
+            text: "Log In to chat",
             callback: () {
               Navigator.of(context).pushNamed(Login.id);
             },
           ),
           CustomButton(
-            text: "Register",
+            text: "Register chat",
             callback: () {
               Navigator.of(context).pushNamed(Registration.id);
             },
@@ -138,7 +138,7 @@ class _RegistrationState extends State<Registration> {
               tag: 'logo',
               child: Container(
                 child: Image.asset(
-                  "assets/images/logo.png",
+                  "lib/assets/images/logo.png",
                 ),
               ),
             ),
@@ -221,7 +221,7 @@ class _LoginState extends State<Login> {
               tag: 'logo',
               child: Container(
                 child: Image.asset(
-                  "assets/images/logo.png",
+                  "lib/assets/images/logo.png",
                 ),
               ),
             ),
@@ -301,7 +301,7 @@ class _ChatState extends State<Chat> {
           tag: 'logo',
           child: Container(
             height: 40.0,
-            child: Image.asset("assets/images/logo.png"),
+            child: Image.asset("lib/assets/images/logo.png"),
           ),
         ),
         title: Text("Tensor Chat"),
@@ -384,10 +384,12 @@ class SendButton extends StatelessWidget {
   const SendButton({Key key, this.text, this.callback}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      color: Colors.orange,
-      onPressed: callback,
-      child: Text(text),
+    return TextButton(
+        child: const Text('Button'),
+        onPressed: () {},
+        style: ButtonStyle(
+           backgroundColor: MaterialStateProperty.all(Colors.red),
+        )
     );
   }
 }
